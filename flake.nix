@@ -34,6 +34,7 @@
           # Dev tools
           just
           nixfmt
+          bacon
         ];
         buildInputs =
           with pkgs;

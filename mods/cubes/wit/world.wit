@@ -1,0 +1,16 @@
+package component:cubes;
+
+/// An example world for the component to target.
+world cubes {
+    use wasvy:ecs/app.{commands, query};
+
+    /// An example system with a Commands system params
+    export spawn-cubes: func(commands: commands);
+
+    /// An example system with a Commands system params
+    export spin-cubes: func(settings: query, cubes: query);
+
+    /// This is important.
+    /// This makes it so the WASM module must implement the guest required functions by the Bevy host.
+    include wasvy:ecs/guest;
+}

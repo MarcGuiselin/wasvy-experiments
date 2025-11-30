@@ -1,0 +1,8 @@
+default_job = "hot-reload-mods"
+
+[jobs.hot-reload-mods]
+default_watch = false
+watch = ["mods"]
+need_stdout = true
+allow_warnings = true
+command = ["just", "build-mods"]

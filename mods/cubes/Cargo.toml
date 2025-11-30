@@ -1,0 +1,16 @@
+[package]
+name = "cubes"
+rust-version.workspace = true
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+bevy_transform.workspace = true
+bevy_math.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+wit-bindgen.workspace = true
+shared.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
