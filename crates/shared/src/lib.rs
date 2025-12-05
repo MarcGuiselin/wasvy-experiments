@@ -20,5 +20,6 @@ pub struct Cube(
 #[cfg_attr(feature = "reflect", derive(Reflect), reflect(Component))]
 pub struct Settings {
     pub delta: f32,
+    pub count: u32,
     pub spin_speed: f32,
 }

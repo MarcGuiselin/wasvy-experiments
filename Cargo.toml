@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 bevy.workspace = true
+bevy_mod_imgui.workspace = true
 wasvy.workspace = true
 shared_reflect.workspace = true
 
@@ -23,6 +24,7 @@ bevy_ecs = { version = "0.17.2", features = [
     "serialize",
     "bevy_reflect",
 ], default-features = false }
+bevy_mod_imgui = { git = "https://github.com/jbrd/bevy_mod_imgui", rev = "6cfcf1b73e2ed0d40944c0d321962a6d1966a0cb" }
 bevy_reflect = "0.17.2"
 bevy_transform = { version = "0.17.2", features = [
     "serialize",

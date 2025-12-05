@@ -23,6 +23,7 @@ struct CubesMod;
 impl Guest for CubesMod {
     fn setup() {
         let spawn_cubes = System::new("spawn-cubes");
+        spawn_cubes.add_query(&[QueryFor::Ref(type_name::<Settings>())]);
         spawn_cubes.add_commands();
 
         let spin_cubes = System::new("spin-cubes");
@@ -37,13 +38,18 @@ impl Guest for CubesMod {
         app.add_systems(&Schedule::Update, vec![spin_cubes]);
     }
 
-    fn spawn_cubes(commands: Commands) {
-        println!("Spawning a cube");
+    fn spawn_cubes(settings: Query, commands: Commands) {
+        let settings = settings.iter().expect("Single component")[0].get();
+        let settings: Settings = from_json(&settings);
 
-        commands.spawn(&[
-            component(&Cube::default()),
-            component(&Transform::default()),
-        ]);
+        println!("Spawning {} cubes", settings.count);
+
+        for i in 0..settings.count {
+            commands.spawn(&[
+                component(&Cube::default()),
+                component(&Transform::from_xyz(i as f32 * 1.35, 0., 0.)),
+            ]);
+        }
     }
 
     fn spin_cubes(cubes: Query, settings: Query) {
