@@ -10,10 +10,7 @@ use bevy_reflect::prelude::*;
 /// A marker component for a cube
 #[derive(Component, Serialize, Deserialize, Default)]
 #[cfg_attr(feature = "reflect", derive(Reflect), reflect(Component))]
-pub struct Cube(
-    // This boolean serves no purpose. Temporary workaround for https://github.com/wasvy-org/wasvy/issues/30
-    bool,
-);
+pub struct Cube;
 
 /// A singleton component
 #[derive(Component, Serialize, Deserialize)]
