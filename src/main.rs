@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 use bevy::{DefaultPlugins, app::App};
-use shared::{Cube, Settings};
+use shared_reflect::{Cube, Settings};
 use wasvy::prelude::*;
 
 fn main() {
@@ -66,7 +66,6 @@ fn pre_update(mut settings: Single<&mut Settings>, time: Res<Time>) {
 /// Add a mesh and a material to new cubes
 fn setup_cubes(cubes: Query<Entity, Added<Cube>>, mut commands: Commands, handles: Res<Handles>) {
     for cube in cubes {
-        println!("sfsdffsdfsd");
         commands.entity(cube).insert((
             Mesh3d(handles.cube.clone()),
             MeshMaterial3d(handles.material.clone()),

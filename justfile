@@ -3,9 +3,13 @@ start:
     just build-mods
     cargo run --release --features bevy/file_watcher
 
-# Run hot reloading for wasm
+# Run
 develop:
-    bacon -j hot-reload-mods
+    bacon
+
+# Run hot reloading for wasm
+develop-mods:
+    bacon hot-reload-mods
 
 build-mods:
 	cargo build --target wasm32-wasip2 --release --workspace --exclude wasvy-experiments --exclude shared

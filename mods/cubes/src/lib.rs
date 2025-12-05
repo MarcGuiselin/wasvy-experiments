@@ -40,7 +40,10 @@ impl Guest for CubesMod {
     fn spawn_cubes(commands: Commands) {
         println!("Spawning a cube");
 
-        commands.spawn(&[component(&Cube), component(&Transform::default())]);
+        commands.spawn(&[
+            component(&Cube::default()),
+            component(&Transform::default()),
+        ]);
     }
 
     fn spin_cubes(cubes: Query, settings: Query) {
